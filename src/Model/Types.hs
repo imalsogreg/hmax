@@ -4,12 +4,14 @@ import Codec.Picture
 import Codec.Picture.Repa
 import Data.Array.Repa
 
-type HmaxImage = Img RGBA
+type Layer = [Cell]
+
+type HmaxImage = Array D DIM3 Double
 
 data Cell = SimpleCell  Tuning
           | ComplexCell [Cell]
-          deriving (Eq, Show)
 
 type Tuning = HmaxImage
 
 newtype Score = Score { unScore :: Double }
+              deriving (Eq, Show)
